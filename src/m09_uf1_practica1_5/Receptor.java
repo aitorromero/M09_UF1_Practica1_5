@@ -12,6 +12,15 @@ import java.util.logging.Logger;
 
 public class Receptor {
 
+    /**
+     * Leemos el fichero recibido por parametro mediante un FileInputStream y un
+     * BufferedInputStream y gracias al objeto Signature validamos que el 
+     * contenido que hemos recibido es el correcto verificando la firma.
+     * @param fitxer
+     * @param signature
+     * @param pub
+     * @return 
+     */
     public boolean validateSignature(String fitxer, byte[] signature, PublicKey pub) {
         boolean isValid = false;
         FileInputStream datafis;

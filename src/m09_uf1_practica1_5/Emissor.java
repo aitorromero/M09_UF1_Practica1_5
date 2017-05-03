@@ -8,7 +8,12 @@ import java.security.PrivateKey;
 import java.security.Signature;
 
 public class Emissor {    
-
+    
+    /**
+     * Gracias a KeyPairGenerator generamos un par de claves, una publica y otra
+     * privada que usaremos para la firma digital.
+     * @return 
+     */
     public KeyPair generadorAleatori() {
         KeyPair keys = null;
         try {
@@ -20,7 +25,16 @@ public class Emissor {
         }
         return keys;
     }
-
+    
+    /**
+     * Mediante un FileInputStream y un BufferedInputStream leemos el contenido
+     * de un fichero recibido por parametro y gracias al metodo initSign(clavePublica)
+     * y sign() del objeto Signer creamos la firma digital que permitira al receptor 
+     * varificar que el contenideo del fichero recibido es el correcto.
+     * @param fitxer
+     * @param priv
+     * @return 
+     */
     public byte[] signData(String fitxer, PrivateKey priv) {
         byte[] signature = null;
         FileInputStream datafis;
